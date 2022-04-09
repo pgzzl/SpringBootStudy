@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mark.springcloud.dao.SciNewsDao">
+
+    <select id="getNewsByUser" parameterType="java.lang.String" resultMap="sciNews">
+        select * from sci_news where user_id = #{uid}
+    </select>
+
+    <select id="getAllNews" resultMap="sciNews">
+        select * from sci_news
+    </select>
+
+    <insert id="addNews" parameterType="SciNews">
+        insert into sci_news(id, title, type, user_id, link, cover, downloads, create_by, update_by)
+        values(
+            #{id},
+            #{title},
+            #{type},
+            #{userId},
+            #{link},
+            #{cover},
+            #{downloads},
+            #{createBy},
+            #{updateBy}
+        )
+    </insert>
+    <resultMap id="sciNews" type="SciNews">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="type" property="type"/>
+        <result column="cover" property="cover"/>
+        <result column="downloads" property="downloads"/>
+        <result column="link" property="link"/>
+        <result column="user_id" property="userId"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="create_by" property="createBy"/>
+        <result column="gmt_update" property="gmtUpdate"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+</mapper>

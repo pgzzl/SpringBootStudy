@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-client-user" />
+        <module name="springcloud-service-scinews-8003" />
+        <module name="springcloud-service-scinews-8002" />
+        <module name="springcloud-api" />
+        <module name="springcloud-gateway" />
+        <module name="springcloud-eureka" />
+        <module name="springcloud-service-scinews" />
+        <module name="springcloud-service-user" />
+        <module name="springcloud-eureka-3" />
+        <module name="springcloud-eureka-2" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,35 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: news_add
+#          uri: http://localhost:8001
+          uri: lb://SPRINGCLOUD-SERVICE-NEWS
+          predicates:
+            - Path=/news/add
+
+        - id: news_get
+          uri: lb://SPRINGCLOUD-SERVICE-NEWS
+          predicates:
+            - Path=/news/getById/**
+
+        - id: news_list
+          uri: lb://SPRINGCLOUD-SERVICE-NEWS
+          predicates:
+            - Path=/news/list
+      discovery:
+        locator:
+          enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.com:7001/eureka/,http://eureka2.com:7002/eureka/,http://eureka3.com:7003/eureka/
+  instance:
+    instance-id: springcloud-gateway${server.port}
+    prefer-ip-address: true
